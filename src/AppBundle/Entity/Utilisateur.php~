@@ -1,0 +1,41 @@
+<?php
+// src/AppBundle/Entity/User.php
+
+namespace AppBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="utilisateurs")
+ */
+class Utilisateur extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Commande", cascade={"persist", "remove"}, mappedBy="utilisateur")
+     * @ORM\JoinColumn(nullable=true)
+     * @var type 
+     */
+    private $commandes;
+    
+      /**
+     * @ORM\OneToMany(targetEntity="UtilisateurAdresse", cascade={"persist", "remove"}, mappedBy="utilisateur")
+     * @ORM\JoinColumn(nullable=true)
+     * @var type 
+     */
+    private $adresses;
+}
