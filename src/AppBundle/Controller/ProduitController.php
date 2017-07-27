@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ProduitController extends Controller
 {
    /**
-    * @Route("/produit", name="nosproduits")
+    * @Route("/", name="nosproduits")
     * 
     */
     public function indexAction()

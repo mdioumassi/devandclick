@@ -4,11 +4,10 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "AppBundle\\": "src/AppBundle", "PageBundle\\": "src/PageBundle"
         },
         "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
+            "app/AppKernel.php", "app/AppCache.php"
         ]
     },
     "autoload-dev": {

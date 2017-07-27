@@ -1,6 +1,12 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+ 
 
+page:
+    resource: "@PageBundle/Controller/"
+    type:     annotation
+    prefix:   /page
+    
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
