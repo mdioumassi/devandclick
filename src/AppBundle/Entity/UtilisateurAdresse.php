@@ -78,7 +78,7 @@ class UtilisateurAdresse
     private $complement;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="adresses")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="adresses")
      * @var type 
      */
     private $utilisateur;

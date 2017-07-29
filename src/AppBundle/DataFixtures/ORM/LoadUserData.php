@@ -9,9 +9,9 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use AppBundle\Entity\Utilisateur;
+use AppBundle\Entity\User;
 
-class LoadUtilisateurData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface 
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface 
 {
     private $container;
     
@@ -21,7 +21,7 @@ class LoadUtilisateurData extends AbstractFixture implements OrderedFixtureInter
     
     public function load(ObjectManager $manager)
     {
-        $user1 = new Utilisateur();
+        $user1 = new User();
         $user1->setUsername('mohamed');
         $user1->setEmail('mdioumassi@yahoo.fr');
         $user1->setEnabled(1);
@@ -39,6 +39,6 @@ class LoadUtilisateurData extends AbstractFixture implements OrderedFixtureInter
     
     public function getOrder()
     {
-        return 4;
+        return 5;
     }
 }

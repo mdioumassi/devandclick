@@ -13,7 +13,7 @@ class LoadMediaData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        //Fruits
+        //Legumes
         $media1 = new Media();
         $media1->setPath("http://copinette.c.o.pic.centerblog.net/0_d6157_4beceb31_L.png");
         $media1->setAlt("Carotte");
@@ -34,20 +34,43 @@ class LoadMediaData extends AbstractFixture implements OrderedFixtureInterface
         $media4->setAlt("Pomme de Terre");
         $manager->persist($media4);
         
+        //Fruits
+        $media5 = new Media();
+        $media5->setPath("http://www2.mes-coloriages-preferes.biz/colorino/Images/Large/Nature-Fruits-Fraise-684831.png");
+        $media5->setAlt("Orange");
+        $manager->persist($media5);
+        
+        $media6 = new Media();
+        $media6->setPath("http://www.grands-meres.net/wp-content/uploads/2011/11/les-bananes.jpg");
+        $media6->setAlt("Banane");
+        $manager->persist($media6);
+        
+        $media7 = new Media();
+        $media7->setPath("http://icons.veryicon.com/256/Leisure/Japan%20Summer/Watermelon.png");
+        $media7->setAlt("Melon");
+        $manager->persist($media7);
+        
+        $media8 = new Media();
+        $media8->setPath("http://www.mi-aime-a-ou.com/flore_la_reunion/psidium_guajava_02.jpg");
+        $media8->setAlt("Goyave");
+        $manager->persist($media8);
+        
         $manager->flush();
                 
         $this->addReference('media1', $media1);
         $this->addReference('media2', $media2);
         $this->addReference('media3', $media3);
         $this->addReference('media4', $media4);
+        $this->addReference('media5', $media5);
+        $this->addReference('media6', $media6);
+        $this->addReference('media7', $media7);
+        $this->addReference('media8', $media8);
         
 
     }
     
     public function getOrder()
     {
-        // the order in which fixtures will be loaded
-        // the lower the number, the sooner that this fixture is loaded
         return 1;
     }
 }

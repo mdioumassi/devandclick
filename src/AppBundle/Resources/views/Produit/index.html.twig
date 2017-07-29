@@ -7,12 +7,11 @@
        {% include '::navigation.html.twig' %}
        </div>    
         <div class="span9">
-            {% if produits|length !=0 %}
             <ul class="thumbnails">
              {% for produit in produits %}
                 <li class="span3">
                     <div class="thumbnail">
-                        <img src="{{produit.image.path}}" alt="DevAndClick" width="200" height="150">
+                        <img src="{{produit.image.path}}" alt="{{produit.categorie.image.alt}}" width="200" height="150">
                         <div class="caption">
                             <h4>{{produit.nom}}</h4>
                             <p>{{produit.prix}}</p>
@@ -35,9 +34,7 @@
                     <li><a href="#">Suivant</a></li>
                 </ul>
             </div>
-            {% else %}
-                <h3>Aucun resultat</h3>
-            {% endif %}
+
         </div>
     </div>
 </div>

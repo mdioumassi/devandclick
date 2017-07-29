@@ -19,28 +19,16 @@ class LoadCategorieData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($cat1);
         
         $cat2 = new Categorie();
-        $cat2->setNom("Legumes");
-        $cat2->setImage($this->getReference("media2"));
+        $cat2->setNom("Fruits");
+        $cat2->setImage($this->getReference("media5"));
         $manager->persist($cat2);
         
-        $cat3 = new Categorie();
-        $cat3->setNom("Legumes");
-        $cat3->setImage($this->getReference("media3"));
-        $manager->persist($cat3);
         
-        $cat4 = new Categorie();
-        $cat4->setNom("Legumes");
-        $cat4->setImage($this->getReference("media4"));
-        $manager->persist($cat4);
         
         $manager->flush();
                 
-        $this->addReference('categorie1', $cat1);
+        $this->addReference('categorie1', $cat1);    
         $this->addReference('categorie2', $cat2);
-        $this->addReference('categorie3', $cat3);
-        $this->addReference('categorie4', $cat4);
-        
-
     }
     
     public function getOrder()

@@ -50,7 +50,7 @@ class Commande
     private $produits;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="commandes" )
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="commandes" )
      * @var type 
      */
     private  $utilisateur;

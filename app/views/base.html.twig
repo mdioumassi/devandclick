@@ -19,12 +19,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" href="index.php">DevAndClick</a>
+                    <a class="brand" href="{{path('nosproduits')}}">DIOUMASSI</a>
                     <div class="nav-collapse collapse">
-                        <form class="navbar-form form-search pull-right">
-                            <input id="Search" name="Search" type="text" class="input-medium search-query">
-                            <button type="submit" class="btn">Rechercher</button>
-                        </form>
+                        {{render(controller('AppBundle:Produit:recherche'))}}
                     </div>
                 </div>
             </div>
@@ -37,26 +34,25 @@
                     <div class="span4 offset1">
                         <h4>Informations</h4>
                         <ul class="nav nav-stacked">
-                            <li><a href="texte.php">CGV</a>
-                            <li><a href="texte.php">Mentions légales</a>
+                            {{ render(controller('PageBundle:Page:menu')) }}
                         </ul>
                     </div> 
 
                     <div class="span4">
                         <h4>Notre entrepôt</h4>
-                        <p><i class="icon-map-marker"></i>&nbsp;Paris 75 000 - 3 rue des jardins</p>
+                        <p><i class="icon-map-marker"></i>&nbsp;{{ adresse }}</p>
                     </div>
 
                     <div class="span2">
                         <h4>Nous contacter</h4>
-                        <p><i class="icon-phone"></i>&nbsp;Tel: 02 35 00 00 00</p>
-                        <p><i class="icon-print"></i>&nbsp;Fax: 02 35 00 00 00</p>
+                        <p><i class="icon-phone"></i>&nbsp;Tel:{{ telephone }}</p>
+                        <p><i class="icon-print"></i>&nbsp;Fax: {{ fax }}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="span4">
-                        <p>&copy; Copyright 2014 - DevAndClick</p>
+                        <p>&copy; Copyright {{ "now"|date('Y')}} - DIOUMASSI</p>
                     </div>
                 </div>
             </div>

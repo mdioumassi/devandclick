@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="utilisateurs")
+ * @ORM\Table(name="fos_user")
  */
-class Utilisateur extends BaseUser
+class User extends BaseUser
 {
     /**
      * @ORM\Id

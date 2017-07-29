@@ -10,4 +10,23 @@ namespace AppBundle\Repository;
  */
 class ProduitRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getProduitByCategorie($id){
+        $query = $this->createQueryBuilder('p')
+                      ->select('p')
+                      ->where('p.categorie = :categorie')
+                      ->andWhere('p.disponible = 1')
+                      ->orderBy('p.id')
+                      ->setParameter('categorie', $id);
+        return $query->getQuery()->getResult();
+    }
+    
+    public function recherche($chaine){
+        $query = $this->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.nom like :chaine')
+                ->andWhere('p.disponible = 1')
+                ->orderBy('p.id')
+                ->setParameter('chaine', $chaine);
+        return $query->getQuery()->getResult();
+    }
 }
