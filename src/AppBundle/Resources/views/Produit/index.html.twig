@@ -5,6 +5,11 @@
     <div class="row">
        <div class="span3">
        {% include '::navigation.html.twig' %}
+       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+           {% include 'AppBundle:Utilisateur:utilisateurConnecte.html.twig' %}
+       {% else %}
+           {% include 'AppBundle:Utilisateur:utilisateur.html.twig' %}
+       {% endif %}
        </div>    
         <div class="span9">
             <ul class="thumbnails">
@@ -14,7 +19,7 @@
                         <img src="{{produit.image.path}}" alt="{{produit.categorie.image.alt}}" width="200" height="150">
                         <div class="caption">
                             <h4>{{produit.nom}}</h4>
-                            <p>{{produit.prix}}</p>
+                            <p>{{produit.prix|tva(produit.tva.multiplicate)}}</p>
                             <a class="btn btn-primary" href="{{path('detail_produit', {'id':produit.id})}}">Plus d'infos</a>
                             <a class="btn btn-success" href="panier.php">Ajouter au panier</a>
                         </div>

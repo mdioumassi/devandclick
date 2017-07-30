@@ -12,6 +12,10 @@ class CategorieController extends Controller {
         
         $categories = $em->getRepository('AppBundle:Categorie')->findAll();
         
+        if(null === $categories){
+            throw $this->createNotFoundException("Pas de catégorie trouvée");
+        }
+        
         return $this->render('AppBundle:Categorie:menu.html.twig', array(
             'categories' => $categories
         ));

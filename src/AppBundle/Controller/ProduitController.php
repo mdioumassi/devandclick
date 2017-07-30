@@ -18,10 +18,14 @@ class ProduitController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $produis = $em->getRepository('AppBundle:Produit')->findBy(array('disponible' =>1));
+        $produits = $em->getRepository('AppBundle:Produit')->findBy(array('disponible' =>1));
+        
+        if(null === $produits){
+            throw $this->createNotFoundException("Pas de produits trouvé");
+        }
         
         return $this->render('AppBundle:Produit:index.html.twig', array(
-           'produits'=>$produis
+           'produits'=>$produits
         ));
     }
 
@@ -32,6 +36,10 @@ class ProduitController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $produit = $em->getRepository('AppBundle:Produit')->find($id);
+        
+        if(null == $produit){
+            throw $this->createNotFoundException("Pas de produit trouvé");
+        }
         return $this->render('AppBundle:Produit:detail.html.twig', array(
             'produit'=>$produit
         ));
@@ -46,7 +54,12 @@ class ProduitController extends Controller
        
        $produits = $em->getRepository('AppBundle:Produit')->getProduitByCategorie($id);
        $categorie = $em->getRepository('AppBundle:Categorie')->find($id);
-       
+       if(null == $categorie){
+            throw $this->createNotFoundException("Pas de catégorie trouvé");
+        }
+        if(null == $produits){
+            throw $this->createNotFoundException("Pas de produits trouvé");
+        }
        return $this->render('AppBundle:Produit:produit.html.twig', array(
            'produits' => $produits
        ));
